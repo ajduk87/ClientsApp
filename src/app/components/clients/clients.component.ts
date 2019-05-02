@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientService } from '../../services/client.service';
+import { Client} from '../../models/Client';
 
 @Component({
   selector: 'app-clients',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clients.component.css']
 })
 export class ClientsComponent implements OnInit {
+  clients:Client[];
 
-  constructor() { }
+  constructor(
+    public ClientService:ClientService
+  ) { }
 
   ngOnInit() {
+    this.ClientService.getClients().subscribe(clients =>  {
+      this.clients = clients;
+      console.log(this.clients);
+    })
   }
 
 }
