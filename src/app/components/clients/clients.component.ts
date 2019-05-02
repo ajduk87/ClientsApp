@@ -9,13 +9,13 @@ import { Client} from '../../models/Client';
 })
 export class ClientsComponent implements OnInit {
   clients:Client[];
-
+  
   constructor(
-    public ClientService:ClientService
+    public clientService:ClientService
   ) { }
 
   ngOnInit() {
-    this.ClientService.getClients().subscribe(clients =>  {
+    this.clientService.getClients().subscribe(clients =>  {
       this.clients = clients;
       console.log(this.clients);
     })
