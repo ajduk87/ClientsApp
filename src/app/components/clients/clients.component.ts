@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
-import { Client} from '../../models/Client';
+import { Client } from '../../models/Client';
 
 @Component({
   selector: 'app-clients',
@@ -10,19 +10,19 @@ import { Client} from '../../models/Client';
 export class ClientsComponent implements OnInit {
   clients:any[];
   totalOwed:number;
-  
+
   constructor(
     public clientService:ClientService
   ) { }
 
   ngOnInit() {
-    this.clientService.getClients().subscribe(clients =>  {
+    this.clientService.getClients().subscribe(clients => {
       this.clients = clients;
       this.getTotalOwed();
     });
   }
-  
-  getTotalOwed() {
+
+  getTotalOwed(){
     let total = 0;
     for(let i = 0;i < this.clients.length;i++){
       total += parseFloat(this.clients[i].balance);
@@ -30,4 +30,5 @@ export class ClientsComponent implements OnInit {
     this.totalOwed = total;
     console.log(this.totalOwed);
   }
+
 }

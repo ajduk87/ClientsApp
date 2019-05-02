@@ -29,6 +29,7 @@ import { ClientService } from './services/client.service';
   {path:'', component:DashboardComponent},
   {path:'register', component:RegisterComponent},
   {path:'login', component:LoginComponent},
+  {path:'add-client', component:AddClientComponent},
 ];
 
 export const firebaseConfig = {
