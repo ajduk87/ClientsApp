@@ -19,6 +19,11 @@ export class ClientService {
   }
   
   newClient(client:Client){
-    // this.clients.push(client);
+    this.clients.push(client);
+  }
+
+  getClient(id:string){
+   this.client = this.af.object('/clients/'+id) as AngularFireObject<Client>;
+   return this.client;
   }
 }
