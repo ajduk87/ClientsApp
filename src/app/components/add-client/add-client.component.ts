@@ -33,7 +33,7 @@ export class AddClientComponent implements OnInit {
       value.balance = 0;
     }
     if(!valid){
-      this.flashMessageService.show('Please fill in all fields', {cssClass:'alert-danger', timeout: 4000});
+      this.flashMessageService.show('Morate uneti sva polja da bi ste nastavili dalje!', {cssClass:'alert-danger', timeout: 4000});
       this.router.navigate(['add-client']);
     } else {
       // Add new client
