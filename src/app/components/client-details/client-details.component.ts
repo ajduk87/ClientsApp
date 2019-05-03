@@ -25,7 +25,7 @@ export class ClientDetailsComponent implements OnInit {
   ngOnInit() {
     // Get ID
     this.id = this.route.snapshot.params['id'];
-    console.log(this.id);
+    
     // Get Client
     this.clientService.getClient(this.id).subscribe(client => {
       if(client.balance > 0){
@@ -33,7 +33,7 @@ export class ClientDetailsComponent implements OnInit {
       }
       this.client = client;
       console.log(this.client);
-    })
+    });
   }
 
 }
