@@ -32,14 +32,17 @@ export class AddClientComponent implements OnInit {
     if(this.disableBalanceOnAdd){
       value.balance = 0;
     }
+    if(this.disableBalanceOnAdd){
+      value.balance = 0;
+    }
     if(!valid){
       this.flashMessageService.show('Morate uneti sva polja da bi ste nastavili dalje!', {cssClass:'alert-danger', timeout: 4000});
       this.router.navigate(['add-client']);
     } else {
       // Add new client
-      // this.clientService.newClient(value);
-      // this.flashMessagesService.show('New client added', {cssClass:'alert-success', timeout: 4000});
-      // this.router.navigate(['/']);
+      this.clientService.newClient(value);
+      this.flashMessageService.show('New client added', {cssClass:'alert-success', timeout: 4000});
+      this.router.navigate(['/']);
     }
   }
 
