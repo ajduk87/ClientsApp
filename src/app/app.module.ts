@@ -2,6 +2,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+
 
 // AngularFire Imports
 import { AngularFireModule } from 'angularfire2';
@@ -58,7 +61,9 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    FormsModule,
+    FlashMessagesModule
   ],
   providers: [
     AngularFireAuth,
