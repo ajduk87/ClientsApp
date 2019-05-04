@@ -16,10 +16,10 @@ export class ClientsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.clientService.getClients().subscribe(clients => {
-      this.clients = clients;
-      this.getTotalOwed();
-    });
+    // this.clientService.getClients().subscribe(clients => {
+    //   this.clients = clients;
+    //   this.getTotalOwed();
+    // });
   }
 
   getTotalOwed(){
