@@ -32,9 +32,6 @@ export class AddClientComponent implements OnInit {
     if(this.disableBalanceOnAdd){
       value.balance = 0;
     }
-    if(this.disableBalanceOnAdd){
-      value.balance = 0;
-    }
     if(!valid){
       this.flashMessageService.show('Morate uneti sva polja da bi ste nastavili dalje!', {cssClass:'alert-danger', timeout: 4000});
       this.router.navigate(['add-client']);

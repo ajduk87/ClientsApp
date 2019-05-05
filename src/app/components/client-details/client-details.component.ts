@@ -25,7 +25,6 @@ export class ClientDetailsComponent implements OnInit {
   ngOnInit() {
     // Get ID
     this.id = this.route.snapshot.params['id'];
-    
 
     // Get Client
     this.clientService.getClient(this.id).subscribe(client => {
@@ -33,7 +32,6 @@ export class ClientDetailsComponent implements OnInit {
         this.hasBalance = true;
       }
       this.client = client;
-      console.log(this.client);
     });
   }
     
