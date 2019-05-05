@@ -11,7 +11,7 @@ import { Client } from '../../models/Client';
 })
 export class ClientDetailsComponent implements OnInit {
   id:string;
-  client: Client;
+  client:Client;
   hasBalance:boolean = false;
   showBalanceUpdateInput:boolean = false;
 
@@ -26,6 +26,7 @@ export class ClientDetailsComponent implements OnInit {
     // Get ID
     this.id = this.route.snapshot.params['id'];
     
+
     // Get Client
     this.clientService.getClient(this.id).subscribe(client => {
       if(client.balance > 0){
@@ -34,6 +35,21 @@ export class ClientDetailsComponent implements OnInit {
       this.client = client;
       console.log(this.client);
     });
+  }
+    
+  updateBalance(id:string) {
+    //Update client
+    this.clientService.updateClient(this.id, this.client);
+    this.flashMessagesService.show('Balance Update', { cssClass:'alert-success', timeout: 4000});
+    this.router.navigate(['/client/'+this.id]);
+  }
+
+  onDeleteClick(){
+    if(confirm("Are you sure to delete?")){
+      this.clientService.deleteClient(this.id);
+      this.flashMessagesService.show('Client Delete', { cssClass:'alert-success', timeout: 4000});
+      this.router.navigate(['/']);
+    }
   }
 
 }
