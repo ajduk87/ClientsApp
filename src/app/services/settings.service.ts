@@ -8,7 +8,7 @@ export class SettingsService {
   settings:Settings = {
     allowRegistration:true,
     disableBalanceOnAdd:true,
-    disableBalanceOnEdit:false
+    disableBalanceOnEdit:true
   }
   constructor() { }
 

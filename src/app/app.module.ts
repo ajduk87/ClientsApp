@@ -29,11 +29,12 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { RegisterGuard } from './guards/register.guard';
 import { SettingsService } from './services/settings.service';
 
   const appRoutes: Routes = [
   {path:'', component:DashboardComponent, canActivate:[AuthGuard]},
-  {path:'register', component:RegisterComponent},
+  {path:'register', component:RegisterComponent, canActivate:[RegisterGuard]},
   {path:'login', component:LoginComponent},
   {path:'add-client', component:AddClientComponent, canActivate:[AuthGuard]},
   {path:'client/:id', component:ClientDetailsComponent, canActivate:[AuthGuard]},
@@ -76,7 +77,8 @@ export const firebaseConfig = {
     ClientService,
     AuthService,
     AuthGuard,
-    SettingsService
+    SettingsService,
+    RegisterGuard
   ],
   bootstrap: [AppComponent]
 })
