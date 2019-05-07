@@ -34,9 +34,9 @@ export class EditClientComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
 
      // Get Client
-     this.clientService.getClient(this.id).subscribe(client => {
-      this.client = client;
-    });
+    //  this.clientService.getClient(this.id).subscribe(client => {
+    //   this.client = client;
+    // });
 
     this.disableBalanceOnEdit = this.settingstService.getSettings().disableBalanceOnEdit;
   }
