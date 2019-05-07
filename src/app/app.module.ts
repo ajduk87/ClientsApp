@@ -39,7 +39,7 @@ import { SettingsService } from './services/settings.service';
   {path:'add-client', component:AddClientComponent, canActivate:[AuthGuard]},
   {path:'client/:id', component:ClientDetailsComponent, canActivate:[AuthGuard]},
   {path:'edit-client/:id', component:EditClientComponent, canActivate:[AuthGuard]},
-  {path:'settings', component:SettingsComponent, canActivate:[AuthGuard]},
+  {path:'settings', component:SettingsComponent},
   {path:'**', component:PageNotFoundComponent},
 ];
 

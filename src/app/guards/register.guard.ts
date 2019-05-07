@@ -9,12 +9,12 @@ export class RegisterGuard implements CanActivate {
         public settingsService:SettingsService
     ){}
 
-    CanActivate(): boolean{
-        if(this.settingsService.getSettings().allowRegistration){
-            return true;
-        } else {
-            this.router.navigate(['/login']);
-            return false;
-        }
+    canActivate(): boolean{
+       if(this.settingsService.getSettings().allowRegistration){
+        return true;
+       } else {
+        this.router.navigate(['/login']);
+        return false;
+       }
     }
 }

@@ -23,9 +23,9 @@ export class SettingsComponent implements OnInit {
   }
 
   onSubmit(){
-    // this.settingsService.changeSettings(this.settings);
-    // this.flashMessagesService.show('Settings saved', {cssClass:'alert-success', timeout: 4000});
-    // this.router.navigate(['/settings']);
+    this.settingsService.changeSettings(this.settings);
+    this.flashMessagesService.show('Settings saved', {cssClass:'alert-success', timeout: 4000});
+    this.router.navigate(['/settings']);
   }
 
 }
