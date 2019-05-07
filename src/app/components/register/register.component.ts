@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private authService:AuthService,
     private router:Router,
-    private flashMessagesService:FlashMessagesService
+    private flashMessagesService: FlashMessagesService
   ) { }
 
   ngOnInit() {
@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(){
     this.authService.register(this.email, this.password)
       .then((res) => {
-        this.flashMessagesService.show('New user registered', {cssClass:'alert-success', timeout:4000});
+        this.flashMessagesService.show('You are registered', { cssClass:'alert-success', timeout: 4000});
         this.router.navigate(['/']);
       })
       .catch((err) => {
