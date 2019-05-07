@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FlashMessagesService } from 'angular2-flash-messages/module';
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { Router } from '@angular/router';
 import { ClientService } from '../../services/client.service';
 import { Client } from '../../models/Client';
@@ -21,7 +21,7 @@ export class AddClientComponent implements OnInit {
   disableBalanceOnAdd:boolean = false;
   
   constructor(
-    private flashMessageService:FlashMessagesService,
+    public flashMessagesService:FlashMessagesService,
     public router:Router,
     public clientService:ClientService,
     public settingsService:SettingsService
@@ -36,13 +36,12 @@ export class AddClientComponent implements OnInit {
       value.balance = 0;
     }
     if(!valid){
-      this.flashMessageService.show('Morate uneti sva polja da bi ste nastavili dalje!', {cssClass:'alert-danger', timeout: 4000});
+      this.flashMessagesService.show('Please fill in all fields', {cssClass:'alert-danger', timeout: 4000});
       this.router.navigate(['add-client']);
     } else {
-      
       // Add new client
       this.clientService.newClient(value);
-      this.flashMessageService.show('New client added', {cssClass:'alert-success', timeout: 4000});
+      this.flashMessagesService.show('New client added', {cssClass:'alert-success', timeout: 4000});
       this.router.navigate(['/']);
     }
   }
